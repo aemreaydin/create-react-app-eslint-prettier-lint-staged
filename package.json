@@ -19,10 +19,10 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
-      "npm run eslint"
+      "npm run eslint-fix"
     ],
     "src/**/*.{css,scss,json,md}": [
-      "npm run prettier"
+      "npm run prettier-write"
     ]
   },
   "scripts": {
