@@ -19,10 +19,10 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
-      "eslint"
+      "npm run eslint"
     ],
     "src/**/*.{css,scss,json,md}": [
-      "prettier --check"
+      "npm run prettier"
     ]
   },
   "scripts": {
@@ -30,8 +30,12 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prettier": "prettier --write --loglevel silent src/**/*.{css,scss,json,md}",
-    "lint": "eslint --fix src/**/*.{js,jsx,ts,tsx} && npm run prettier && echo Lint and Prettier Fixes Complete."
+    "prettier": "prettier --check --loglevel silent src/**/*.{css,scss,json,md}",
+    "prettier-write": "prettier --write --loglevel silent src/**/*.{css,scss,json,md}",
+    "eslint": "eslint src/**/*.{js,jsx,ts,tsx}",
+    "eslint-fix": "eslint --fix src/**/*.{js,jsx,ts,tsx}",
+    "lint": "npm run eslint && npm run prettier && echo Eslint and Prettier Checks Complete.",
+    "lint-fix": "npm run eslint-fix && npm run prettier-write && echo Eslint and Prettier Fixes Complete."
   },
   "browserslist": {
     "production": [
