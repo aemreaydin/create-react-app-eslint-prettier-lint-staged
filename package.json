@@ -12,14 +12,26 @@
     "react-scripts": "3.2.0",
     "typescript": "3.7.2"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint"
+    ],
+    "src/**/*.{css,scss,json,md}": [
+      "prettier --check"
+    ]
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "eject": "react-scripts eject",
+    "prettier": "prettier --write --loglevel silent src/**/*.{css,scss,json,md}",
+    "lint": "eslint --fix src/**/*.{js,jsx,ts,tsx} && npm run prettier && echo Lint and Prettier Fixes Complete."
   },
   "browserslist": {
     "production": [
@@ -32,5 +44,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.4.3",
+    "prettier": "latest"
   }
 }
